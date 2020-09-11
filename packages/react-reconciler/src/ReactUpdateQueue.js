@@ -195,6 +195,7 @@ export function createUpdate(
 
     next: (null: any),
   };
+  update.priority = getCurrentPriorityLevel();
   update.next = update;
   return update;
 }

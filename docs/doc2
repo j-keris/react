@@ -1,0 +1,50 @@
+// 调用updateContainer
+// 第一次初始化的时候是包裹在 unbatchedUpdates 函数内
+
+// 在执行调用updateContainer 时executionContext 加上 LegacyUnbatchedContext
+unbatchedUpdates
+
+//第一次调度的时候 scheduleWork, 参数current 结构
+
+
+{
+  alternate: null
+  child: null
+  childExpirationTime: 0
+  effectTag: 0
+  elementType: null
+  expirationTime: 0
+  firstEffect: null
+  key: null
+  lastEffect: null
+  memoizedProps: null
+  memoizedState: null
+  mode: 8
+  nextEffect: null
+  pendingProps: null
+  ref: null
+  return: null
+  sibling: null
+  stateNode: FiberRootNode
+  tag: 3
+  type: null
+  updateQueue: {
+    baseQueue: null
+    baseState: null
+    effects: null
+    shared: {
+      pending: {
+        callback: null
+        expirationTime: 1073741823
+        next: Update
+        payload: {element: {…}}
+        priority: 97
+        suspenseConfig: null
+        tag: 0
+      }
+    }
+  }
+}
+
+
+

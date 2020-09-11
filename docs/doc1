@@ -1,0 +1,32 @@
+render(<App>, document.getElementById('#app'), callback)
+
+// <App> => element  document.getElementById('#app') => container
+
+// 1.如果container._reactRootContainer 不存在，调用legacyCreateRootFromDOMContainer
+// 2.调用updateContainer
+legacyRenderSubtreeIntoContainer(null, element, container, callback)
+
+
+// 将container 内的子元素全部清空，
+// 调用createLegacyRoot 获取返回值
+legacyCreateRootFromDOMContainer
+
+
+// 返回 new ReactDOMBlockingRoot
+// 实例的 this._internalRoot = FiberRoot
+createLegacyRoot
+
+
+
+// 调用createContainer 生成FiberRoot
+// 标记 container['__reactContainere$' + randomKey] = FiberRoot
+createRootImpl
+
+// 返回FiberRoot
+createContainer
+{
+  tag: 0,
+  current: null,
+  containerInfo: el,
+  ...
+}

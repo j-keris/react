@@ -35,11 +35,11 @@ export const Idle = 2;
 // Continuous Hydration is slightly higher than Idle and is used to increase
 // priority of hover targets.
 export const ContinuousHydration = 3;
-export const Sync = MAX_SIGNED_31_BIT_INT;
-export const Batched = Sync - 1;
+export const Sync = MAX_SIGNED_31_BIT_INT; // Sync 1073741823
+export const Batched = Sync - 1;  // 1073741822
 
 const UNIT_SIZE = 10;
-const MAGIC_NUMBER_OFFSET = Batched - 1;
+const MAGIC_NUMBER_OFFSET = Batched - 1; // 1073741821
 
 // 1 unit of expiration time represents 10ms.
 export function msToExpirationTime(ms: number): ExpirationTime {
@@ -77,6 +77,7 @@ export const LOW_PRIORITY_BATCH_SIZE = 250;
 export function computeAsyncExpiration(
   currentTime: ExpirationTime,
 ): ExpirationTime {
+  // ((1073741821 - currentTime + 500)/25 + 1)  *  25
   return computeExpirationBucket(
     currentTime,
     LOW_PRIORITY_EXPIRATION,
@@ -111,6 +112,7 @@ export const HIGH_PRIORITY_EXPIRATION = __DEV__ ? 500 : 150;
 export const HIGH_PRIORITY_BATCH_SIZE = 100;
 
 export function computeInteractiveExpiration(currentTime: ExpirationTime) {
+  // ((1073741821 - currentTime + 15)/10 + 1)  *  10
   return computeExpirationBucket(
     currentTime,
     HIGH_PRIORITY_EXPIRATION,
